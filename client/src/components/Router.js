@@ -25,19 +25,22 @@ class Router extends Component {
     }
     return (
       <BrowserRouter>
-        <Switch>
-          <Route
-            exact
-            path="/"
-            component={Dashboard}
-            login={this.props.login}
-          />
-          <Route
-            path="/login"
-            render={props => <LoginPage loggedIn={props.loggedIn} />}
-          />
-          <Route component={NotFound} />
-        </Switch>
+        <div>
+          <Header />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              component={Dashboard}
+              login={this.props.login}
+            />
+            <Route
+              path="/login"
+              render={props => <LoginPage loggedIn={props.loggedIn} />}
+            />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
       </BrowserRouter>
     );
   }

@@ -11,7 +11,7 @@ router.get('/logout', authController.logout, (req, res) => {
   res.redirect('/app');
 });
 
-router.post('/register', userController.register, authController.login);
+// router.post('/register', userController.register, authController.login);
 router.post('/login', authController.login, (req, res) => {
   res.send('success');
 });
