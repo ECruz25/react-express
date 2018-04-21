@@ -4,8 +4,8 @@ import Accounts from './Accounts';
 class Dashboard extends Component {
   render() {
     return (
-      <main>
-        <section>
+      <main className="dashboard">
+        <section classname="dashboard__accounts">
           <Accounts />
         </section>
       </main>

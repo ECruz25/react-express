@@ -1,15 +1,20 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800");
 * {
   margin: auto 0;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
 }
 .header {
-  margin: 5vh 10vw;
-  font-size: 18px;
+  padding: 3vh 3vw;
+  font-size: 16px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
+  border-bottom: 6px solid #808080;
 }
 .header__logo {
-  color: #f00;
+  color: #fff;
+  background-color: #f00;
+  padding: 5px 9px;
   font-size: 25px;
   justify-self: start;
   font-weight: 600;
@@ -23,13 +28,31 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
+  font-weight: 600;
 }
 .header__sub-header__item {
   text-decoration: none;
   color: #000;
+  position: relative;
+  z-index: 1;
 }
-.header__sub-header__item--active {
+.header__sub-header__item:hover {
+  color: #f00;
+}
+.header__sub-header__item--active::before {
+  content: "";
+  position: absolute;
+  left: 10%;
+  bottom: -10px;
+  height: 2px;
+  width: 80%;
   border-bottom: 2px solid #f00;
+}
+.header__sub-header__item--active:hover {
+  color: #000;
+}
+.dashboard {
+  margin: 0 2vw;
 }
 .user-form {
   width: 40%;
@@ -54,4 +77,33 @@
   margin-top: 20px;
   height: 10vh;
   font-weight: 600;
+}
+.accounts {
+  margin: 0 2vw;
+}
+.accounts__titles {
+  margin-top: 8vh;
+  display: grid;
+  grid-template-columns: 50% 25% 25%;
+  justify-items: center;
+}
+.account-view {
+  font-weight: 600;
+  margin: 5vh 0;
+  display: grid;
+  grid-template-columns: 50% 25% 25%;
+  padding: 5vh;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.05), 0 6px 20px 0 rgba(0,0,0,0.1);
+}
+.account-view__balance {
+  justify-self: center;
+}
+.account-view__options {
+  justify-self: center;
+}
+.account-view__options a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #f00;
+  padding: 4px 12px;
 }

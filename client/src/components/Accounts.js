@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AccountForm from './AccountForm';
-import AccountView from './AccountView';
+import AccountCard from './AccountCard';
 
 class Accounts extends Component {
   state = {
@@ -26,8 +26,13 @@ class Accounts extends Component {
         <div className="accounts__total">
           <h2>Total: {this.state.totalBalance}</h2>
         </div>
+        <div className="accounts__titles">
+          <h2>Account Name</h2>
+          <h2>Account Balance</h2>
+          <h2>Account Options</h2>
+        </div>
         {this.state.accounts.map(account => (
-          <AccountView
+          <AccountCard
             balance={account.balance}
             accountName={account.accountName}
             id={account._id}
