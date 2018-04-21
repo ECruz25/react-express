@@ -20,12 +20,23 @@ class Accounts extends Component {
     }
   }
 
+  async componentDidUpdate(preProps, prevState) {
+    try {
+      const response = await fetch('/app/financial/accounts');
+      const accounts = await response.json();
+      let totalBalance = 0;
+      accounts.map(account => (totalBalance += account.balance));
+      if (prevState.accounts != accounts) {
+        this.setState({ accounts, totalBalance });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   render() {
     return (
       <div className="accounts">
-        <div className="accounts__total">
-          <h2>Total: {this.state.totalBalance}</h2>
-        </div>
         <div className="accounts__titles">
           <h2>Account Name</h2>
           <h2>Account Balance</h2>

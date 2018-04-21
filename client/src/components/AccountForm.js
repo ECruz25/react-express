@@ -21,6 +21,7 @@ class AccountForm extends Component {
         method: 'POST',
         body: JSON.stringify(this.state)
       });
+      this.setState({ accountName: '', balance: 0 });
     } catch (error) {
       console.log(error);
     }
@@ -51,6 +52,7 @@ class AccountForm extends Component {
         <input
           type="text"
           name="accountName"
+          className="account-form__input"
           placeholder="Account Name"
           value={this.state.accountName}
           onChange={this.onAccountNameChange}
@@ -58,12 +60,14 @@ class AccountForm extends Component {
         <input
           type="number"
           name="balance"
+          className="account-form__input"
           placeholder="balance"
           value={this.state.balance}
           onChange={this.onBalanceChange}
         />
-        <button type="submit">Save</button>
-        <NavLink to={`financial/accounts/${this.props.id}`}>View</NavLink>
+        <button type="submit" className="account-form__button">
+          Save
+        </button>
       </form>
     );
   }
