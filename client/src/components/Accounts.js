@@ -7,12 +7,14 @@ class Accounts extends Component {
     accounts: [],
     totalBalance: 0
   };
-  async componentDidMount() {
+
+  async componentWillMount() {
     try {
       const response = await fetch('/app/financial/accounts');
       const accounts = await response.json();
-      console.log(accounts);
-      this.setState({ accounts });
+      let totalBalance = 0;
+      accounts.map(account => (totalBalance += account.balance));
+      this.setState({ accounts, totalBalance });
     } catch (error) {
       console.log(error);
     }
@@ -21,6 +23,7 @@ class Accounts extends Component {
   render() {
     return (
       <div>
+        <h2>Total: {this.state.totalBalance}</h2>
         {this.state.accounts.map(account => (
           <AccountView
             balance={account.balance}
