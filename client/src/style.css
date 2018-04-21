@@ -2,21 +2,32 @@
   margin: auto 0;
 }
 .header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 0 20vw;
+  margin: 5vh 10vw;
+  font-size: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+.header__logo {
+  color: #f00;
+  font-size: 25px;
+  justify-self: start;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 .header__item {
   text-decoration: none;
-  background-color: #f00;
-  color: #fff;
   border-color: #000;
+}
+.header__sub-header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
 }
 .header__sub-header__item {
   text-decoration: none;
   color: #000;
 }
 .header__sub-header__item--active {
-  color: #f00;
+  border-bottom: 2px solid #f00;
 }

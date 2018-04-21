@@ -2,19 +2,27 @@
   margin: auto 0
 
 .header
-  display: flex
-  flex-direction: row
-  justify-content: space-between
-  margin: 0 20vw
+  margin: 5vh 10vw 
+  font-size: 18px
+  display: grid
+  grid-template-columns: 1fr 1fr
+  justify-items: center
+  &__logo
+    color: red
+    font-size: 25px
+    justify-self: start
+    font-weight: 600
+    text-transform: uppercase
   &__item
     text-decoration: none
-    background-color: red
-    color: white
     border-color: black
   &__sub-header
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    justify-items: center
     &__item
       text-decoration: none 
       color: black
       &--active
-        color:blue
+        border-bottom: 2px solid red
 

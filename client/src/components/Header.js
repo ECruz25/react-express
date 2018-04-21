@@ -9,9 +9,9 @@ const Header = () => (
       activeClassName=" header__item--active"
       exact={true}
     >
-      Home
+      Dashboard
     </NavLink>
-    <div classname="header__sub-header">
+    <div className="header__sub-header">
       <NavLink
         to="/financial/accounts"
         className=" header__sub-header__item"

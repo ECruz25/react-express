@@ -12,11 +12,9 @@ exports.registerForm = (req, res) => {
 
 exports.register = async (req, res, next) => {
   try {
-    console.log(req.body);
     const user = new User({
       username: req.body.username
     });
-    console.log(user);
     const register = promisify(User.register, User);
     await register(user, req.body.password);
     next();

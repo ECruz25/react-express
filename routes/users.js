@@ -12,7 +12,6 @@ router.post('/accounts/register', accountController.registerAccount);
 
 /* GET users listing. */
 router.get('/', (req, res, next) => {
-  console.log(req.user);
   res.send('respond with a resource');
 });
 router.get('/logout', authController.logout, (req, res) => {

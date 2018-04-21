@@ -22,8 +22,10 @@ class Accounts extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Total: {this.state.totalBalance}</h2>
+      <div className="accounts">
+        <div className="accounts__total">
+          <h2>Total: {this.state.totalBalance}</h2>
+        </div>
         {this.state.accounts.map(account => (
           <AccountView
             balance={account.balance}

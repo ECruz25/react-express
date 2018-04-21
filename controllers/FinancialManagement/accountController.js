@@ -9,7 +9,6 @@ exports.registerAccount = async (req, res) => {
   try {
     const owner = await User.findById(req.body.owner);
     req.body.owner = owner;
-    console.log(req.body);
     const account = new Account(req.body);
     await account.save();
     res.sendStatus(200);
