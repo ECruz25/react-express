@@ -10,8 +10,9 @@ class App extends Component {
     loggedIn: ''
   };
 
-  login = () => {
+  login = user => {
     this.setState({ loggedIn: true });
+    cookies.set('user', user);
     cookies.set('loggedIn', this.state.loggedIn);
   };
 

@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import LoginPage from './LoginPage';
 import NotFound from './NotFound';
 import Dashboard from './Dashboard';
+import Accounts from './Accounts';
+import Header from './Header';
 
 class Router extends Component {
   render() {
@@ -36,8 +38,11 @@ class Router extends Component {
             />
             <Route
               path="/login"
-              render={props => <LoginPage loggedIn={props.loggedIn} />}
+              render={props => (
+                <LoginPage loggedIn={props.loggedIn} login={this.props.login} />
+              )}
             />
+            <Route path="/financial/accounts" component={Accounts} />
             <Route component={NotFound} />
           </Switch>
         </div>

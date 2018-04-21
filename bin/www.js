@@ -16,7 +16,7 @@ mongoose.connection.once('open', () => {
 });
 
 require('../models/User');
-// require('../models/Sale');
+require('../models/FinancialManagement/Account');
 // require('../models/Invoice');
 // require('../models/Debt');
 // require('../models/Company');

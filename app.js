@@ -13,15 +13,15 @@ const promisify = require('es6-promisify');
 require('./middleware/passport');
 const index = require('./routes/index');
 const users = require('./routes/users');
+const financialManagement = require('./routes/financialManagement');
 
 const app = express();
-
 app.use(logger('dev'));
-// app.use(expressValidator());
+app.use(expressValidator());
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
-    extended: false
+    extended: true
   })
 );
 app.use(cookieParser());
@@ -43,5 +43,6 @@ app.use((req, res, next) => {
 
 app.use('/app', index);
 app.use('/app/users', users);
+app.use('/app/financial', financialManagement);
 
 module.exports = app;

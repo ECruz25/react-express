@@ -24,3 +24,7 @@ exports.register = async (req, res, next) => {
     console.log(error);
   }
 };
+
+exports.getUserById = async id => {
+  return await User.findById(id);
+};

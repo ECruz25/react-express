@@ -20,7 +20,7 @@ const Header = () => (
         </li>
         <li className="nav-item">
           <NavLink
-            to="/connections/addConnection"
+            to="/financial/accounts"
             className="nav-link"
             activeClassName="active"
           >

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Redirect } from 'react-router';
+import { Redirect } from 'react-router';
 
 class UserForm extends Component {
   state = {
@@ -30,7 +30,7 @@ class UserForm extends Component {
         this.setState({
           redirect: true
         });
-        this.props.login();
+        this.props.login(await response.json());
       }
     } catch (error) {
       console.log(error);
