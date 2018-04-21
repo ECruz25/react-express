@@ -57,29 +57,31 @@ class UserForm extends Component {
       return <Redirect to="/" />;
     }
     return (
-      <div className="class">
-        <form onSubmit={this.onSubmit}>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            className="username"
-            name="username"
-            onChange={this.onUserNameChange}
-            required
-            value={this.state.username}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            className="password"
-            name="password"
-            onChange={this.onPasswordChange}
-            value={this.state.password}
-            required
-          />
-          <button type="submit">Go!</button>
-        </form>
-      </div>
+      <form onSubmit={this.onSubmit} className="user-form">
+        <label className="user-form__label" htmlFor="username">
+          Username
+        </label>
+        <input
+          type="text"
+          className="user-form__input username"
+          name="username"
+          onChange={this.onUserNameChange}
+          required
+          value={this.state.username}
+        />
+        <label className="user-form__label" htmlFor="password">
+          Password
+        </label>
+        <input
+          type="password"
+          className="user-form__input password"
+          name="password"
+          onChange={this.onPasswordChange}
+          value={this.state.password}
+          required
+        />
+        <button type="submit">Go!</button>
+      </form>
     );
   }
 }

@@ -31,3 +31,27 @@
 .header__sub-header__item--active {
   border-bottom: 2px solid #f00;
 }
+.user-form {
+  width: 40%;
+  margin: auto;
+  margin-top: 12vh;
+  display: grid;
+  font-size: 18px;
+  justify-items: center;
+}
+.user-form__label {
+  margin: 20px 0;
+}
+.user-form__input {
+  width: 70%;
+  height: 9vh;
+  padding-left: 10%;
+}
+.user-form button {
+  background-color: #f00;
+  border: none;
+  width: 80%;
+  margin-top: 20px;
+  height: 10vh;
+  font-weight: 600;
+}
