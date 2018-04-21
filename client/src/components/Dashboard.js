@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import Accounts from './Accounts';
 
 class Dashboard extends Component {
   render() {
     return (
       <main>
-        <h3>Hello</h3>
+        <section>
+          <Accounts />
+        </section>
       </main>
     );
   }
