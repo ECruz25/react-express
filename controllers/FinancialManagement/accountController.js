@@ -46,7 +46,6 @@ exports.getAccounts = async (req, res) => {
   try {
     //algun dia tendre que cambiar esto para que solo muestre las de el usuario logueado
     const accounts = await Account.find();
-    console.log(accounts);
     res.json(accounts);
   } catch (error) {
     console.log(error);
