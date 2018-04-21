@@ -26,6 +26,13 @@ const Header = () => (
       >
         Login
       </NavLink>
+      <NavLink
+        to="/todos"
+        className=" header__sub-header__item"
+        activeClassName="header__sub-header__item--active"
+      >
+        To-Do's
+      </NavLink>
     </div>
   </nav>
 );

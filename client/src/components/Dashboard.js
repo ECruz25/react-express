@@ -5,7 +5,7 @@ class Dashboard extends Component {
   render() {
     return (
       <main className="dashboard">
-        <section classname="dashboard__accounts">
+        <section className="dashboard__accounts">
           <Accounts />
         </section>
       </main>
