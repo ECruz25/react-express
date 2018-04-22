@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Accounts from './Accounts';
+import AccountsContainer from './AccountsContainer';
 
 class Dashboard extends Component {
   render() {
     return (
       <main className="dashboard">
         <section className="dashboard__accounts">
-          <Accounts />
+          <AccountsContainer user={this.props.user} />
         </section>
       </main>
     );

@@ -6,24 +6,11 @@ class AccountForm extends Component {
 
   onSubmit = async event => {
     event.preventDefault();
-    try {
-      const account = {
-        accountName: this.accountNameRef.current.value,
-        balance: this.balanceRef.current.value,
-        owner: this.props.user
-      };
-      await fetch(`/app/users/${this.props.user}/financial/accounts/register`, {
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        method: 'POST',
-        body: JSON.stringify(account)
-      });
-      this.props.addAccount(account);
-    } catch (error) {
-      console.log(error);
-    }
+    const account = {
+      accountName: this.accountNameRef.current.value,
+      balance: this.balanceRef.current.value
+    };
+    this.props.addAccount(account);
     event.currentTarget.reset();
   };
 

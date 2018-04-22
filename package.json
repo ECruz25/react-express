@@ -7,12 +7,10 @@
     "server": "nodemon ./bin/www",
     "client": "npm run start --prefix client",
     "styles": "npm run styles --prefix client",
-    "dev":
-      "concurrently \"npm run server\" \"npm run client\" \"npm run styles\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run styles\"",
     "test": "mocha **/*.test.js",
     "test-watch": "nodemon --exec 'npm test'",
-    "heroku-postbuild":
-      "cd client && npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
@@ -28,6 +26,7 @@
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-google": "^0.9.1",
     "eslint-plugin-html": "^4.0.2",
+    "eslint-plugin-prettier": "^2.6.0",
     "express": "~4.15.5",
     "express-session": "^1.15.6",
     "express-validator": "^4.3.0",

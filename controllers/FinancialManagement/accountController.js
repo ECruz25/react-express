@@ -32,8 +32,7 @@ exports.resetAccount = async (req, res) => {
 
 exports.deleteAccount = async (req, res) => {
   try {
-    const account = await Account.findByIdAndRemove(req.body.id);
-    await account.remove().exec();
+    await Account.findByIdAndRemove(req.params.id);
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -54,8 +53,8 @@ exports.getAccounts = async (req, res) => {
 exports.getAccount = async (req, res) => {
   try {
     const account = await Account.find({
-      _id: req.body.id,
-      owner: req.body.user
+      _id: req.params.id,
+      owner: req.params.userId
     });
     res.json(account);
   } catch (error) {

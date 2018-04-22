@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import LoginPage from './LoginPage';
 import NotFound from './NotFound';
 import Dashboard from './Dashboard';
-import Accounts from './Accounts';
+import AccountsContainer from './AccountsContainer';
 import Account from './Account';
 import Header from './Header';
 
@@ -34,8 +34,9 @@ class Router extends Component {
             <Route
               exact
               path="/"
-              component={Dashboard}
-              login={this.props.login}
+              render={props => (
+                <Dashboard user={this.props.user} login={this.props.login} />
+              )}
             />
             <Route
               path="/login"
@@ -46,11 +47,13 @@ class Router extends Component {
             <Route
               exact
               path="/financial/accounts"
-              render={props => <Accounts user={this.props.user} />}
+              render={props => <AccountsContainer user={this.props.user} />}
             />
             <Route
               path="/financial/accounts/account/:id"
-              render={props => <Account user={this.props.user} />}
+              render={({ match }) => (
+                <Account user={this.props.user} match={match} />
+              )}
             />
             <Route component={NotFound} />
           </Switch>

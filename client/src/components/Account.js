@@ -1,35 +1,37 @@
 import React, { Component } from 'react';
-import AccountForm from './AccountForm';
-import AccountCard from './AccountCard';
 
 class Account extends Component {
   state = {
+    account: {},
     accounts: {},
-    totalBalance: 0
+    transferAmount: 0
   };
 
   async componentWillMount() {
     try {
-      console.log(this);
       const response = await fetch(
-        `/app/financial/accounts/${this.state.user}/${
+        `/app/financial/accounts/${this.props.user}/${
           this.props.match.params.id
         }`
       );
-      const accounts = await response.json();
-      let totalBalance = 0;
-      accounts.map(account => (totalBalance += account.balance));
-      this.setState({ accounts, totalBalance });
+      const account = await response.json();
+      this.setState({ account: account[0] });
     } catch (error) {
       console.log(error);
     }
   }
 
-  addAccount = account => {
-    const accounts = { ...this.state.accounts };
-    accounts[`account${Date.now()}`] = account;
-    this.setState({ accounts });
-  };
+  async componentDidMount() {
+    try {
+      const response = await fetch(
+        `/app/financial/accounts/${this.props.user}`
+      );
+      const accounts = await response.json();
+      this.setState({ accounts });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   render() {
     return (
@@ -39,8 +41,22 @@ class Account extends Component {
           <h2>Account Balance</h2>
           <h2>Account Options</h2>
         </div>
-        <AccountCard />
-        <AccountForm addAccount={this.addAccount} />
+        <form className="transfer-form" onSubmit={this.onSubmit}>
+          <input
+            type="number"
+            className="transfer-form__amount"
+            value={this.state.transferAmount}
+            onChange={this.onTransferAmountChange}
+          />
+          <select type="number" className="transfer-form__account">
+            {Object.keys(this.state.accounts).map(key => (
+              <option key={key} value={this.state.accounts[key]._id}>
+                {this.state.accounts[key].accountName}
+              </option>
+            ))}
+          </select>
+          <button type="submit">Transfer</button>
+        </form>
       </div>
     );
   }
