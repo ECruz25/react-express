@@ -18,6 +18,11 @@ const transactionSchema = new Schema({
   },
   date: {
     type: Date
+  },
+  user: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+    required: 'You must login'
   }
 });
 

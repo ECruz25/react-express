@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AccountsList from './AccountsList';
 
-class AccountsContainer extends Component {
+class AccountsListContainer extends Component {
   state = {
     accounts: {},
     totalBalance: 0
@@ -76,4 +76,4 @@ class AccountsContainer extends Component {
   }
 }
 
-export default AccountsContainer;
+export default AccountsListContainer;
