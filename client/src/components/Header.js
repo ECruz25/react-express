@@ -20,18 +20,18 @@ const Header = () => (
         Money Management
       </NavLink>
       <NavLink
-        to="/login"
-        className="header__sub-header__item"
-        activeClassName="header__sub-header__item--active"
-      >
-        Login
-      </NavLink>
-      <NavLink
         to="/todos"
         className=" header__sub-header__item"
         activeClassName="header__sub-header__item--active"
       >
         To-Do's
+      </NavLink>
+      <NavLink
+        to="/login"
+        className="header__sub-header__item"
+        activeClassName="header__sub-header__item--active"
+      >
+        Login
       </NavLink>
     </div>
   </nav>

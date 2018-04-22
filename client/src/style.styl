@@ -8,7 +8,7 @@
   padding: 3vh 3vw
   font-size: 18px
   display: grid
-  grid-template-columns: 1fr 1fr
+  grid-template-columns: 34% 66%
   justify-items: center
   border-bottom: 12px solid gray
   &__logo
@@ -24,15 +24,20 @@
     border-color: black
   &__sub-header
     display: grid
+    width: 100%
     grid-template-columns: repeat(3, 1fr)
     justify-items: center
     font-weight: 600
+    font-size: 25px
+    text-transform: uppercase
     &__item
       text-decoration: none 
       color: black
       position: relative;
-      z-index : 1;
-      transition: border 5s ease
+      z-index : 1; 
+      transition: border 3s ease;
+      transform-origin: center
+      transform: scale3d(1,1,1); 
       &:hover
         &:after
           content : "";
@@ -41,7 +46,7 @@
           bottom  : -10px;
           height  : 2px;
           width   : 50%; 
-          border-bottom: 2px solid red
+          border-bottom: 4px solid red
       &--active
         &::after
           content : "";
@@ -50,7 +55,7 @@
           bottom  : -10px;
           height  : 2px;
           width   : 80%; 
-          border-bottom: 2px solid red
+          border-bottom: 4px solid red
         &:hover
           color: black
           &::after
@@ -60,7 +65,7 @@
             bottom  : -10px;
             height  : 2px;
             width   : 80%; 
-            border-bottom: 2px solid red
+            border-bottom: 4px solid red
 
 .dashboard
   margin: 0 2vw
@@ -117,7 +122,7 @@
       text-decoration: none
       color: white
       background-color: red
-      padding: 4px 12px
+      padding: 8px 18px
       font-weight: 600
 
 .account-form
@@ -133,10 +138,8 @@
   &__button
     background-color: red
     border: none 
-    height: 90%
-    width: 50%
+    height: 55%
+    width: 40%
     font-size: 30px
     color: white
     font-weight: 600
-
-
