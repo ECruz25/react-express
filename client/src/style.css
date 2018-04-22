@@ -5,7 +5,7 @@
 }
 .header {
   padding: 3vh 3vw;
-  font-size: 16px;
+  font-size: 18px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
@@ -37,7 +37,7 @@
   z-index: 1;
   transition: border 5s ease;
 }
-.header__sub-header__item:hover:before {
+.header__sub-header__item:hover:after {
   content: "";
   position: absolute;
   left: 25%;
@@ -46,7 +46,7 @@
   width: 50%;
   border-bottom: 2px solid #f00;
 }
-.header__sub-header__item--active::before {
+.header__sub-header__item--active::after {
   content: "";
   position: absolute;
   left: 10%;
@@ -58,7 +58,7 @@
 .header__sub-header__item--active:hover {
   color: #000;
 }
-.header__sub-header__item--active:hover::before {
+.header__sub-header__item--active:hover::after {
   content: "";
   position: absolute;
   left: 10%;
@@ -83,8 +83,9 @@
   justify-self: start;
 }
 .user-form__input {
-  width: 100%;
+  width: 90%;
   height: 6vh;
+  padding-left: 10%;
   border: 1px solid #808080;
 }
 .user-form__input:required {
@@ -104,7 +105,7 @@
   margin: 0 2vw;
 }
 .accounts__titles {
-  margin-top: 8vh;
+  margin: 40px 0;
   display: grid;
   grid-template-columns: 50% 25% 25%;
   justify-items: center;
@@ -113,8 +114,8 @@
   display: grid;
   grid-template-columns: 50% 25% 25%;
   font-weight: 600;
-  margin-top: 5vh;
-  margin-bottom: 2vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
   padding: 5vh;
   padding-left: 5vw;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.05), 0 6px 20px 0 rgba(0,0,0,0.1);
@@ -137,6 +138,7 @@
   grid-template-columns: 50% 25% 25%;
   justify-items: center;
   height: 12vh;
+  width: 100%;
 }
 .account-form__input {
   width: 85%;

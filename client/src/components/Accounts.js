@@ -4,7 +4,7 @@ import AccountCard from './AccountCard';
 
 class Accounts extends Component {
   state = {
-    accounts: [],
+    accounts: {},
     totalBalance: 0
   };
 
@@ -20,19 +20,11 @@ class Accounts extends Component {
     }
   }
 
-  async componentDidUpdate(preProps, prevState) {
-    try {
-      const response = await fetch('/app/financial/accounts');
-      const accounts = await response.json();
-      let totalBalance = 0;
-      accounts.map(account => (totalBalance += account.balance));
-      if (prevState.accounts != accounts) {
-        this.setState({ accounts, totalBalance });
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  addAccount = account => {
+    const accounts = { ...this.state.accounts };
+    accounts[`account${Date.now()}`] = account;
+    this.setState({ accounts });
+  };
 
   render() {
     return (
@@ -42,15 +34,15 @@ class Accounts extends Component {
           <h2>Account Balance</h2>
           <h2>Account Options</h2>
         </div>
-        {this.state.accounts.map(account => (
+        {Object.keys(this.state.accounts).map(key => (
           <AccountCard
-            balance={account.balance}
-            accountName={account.accountName}
-            id={account._id}
-            key={account._id}
+            balance={this.state.accounts[key].balance}
+            accountName={this.state.accounts[key].accountName}
+            id={key}
+            key={key}
           />
         ))}
-        <AccountForm />
+        <AccountForm addAccount={this.addAccount} />
       </div>
     );
   }

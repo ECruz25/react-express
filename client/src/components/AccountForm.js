@@ -1,50 +1,43 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { Component, createRef } from 'react';
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
 
 class AccountForm extends Component {
+  accountNameRef = createRef();
+  balanceRef = createRef();
+
   state = {
-    accountName: '',
-    balance: 0,
     owner: ''
   };
-  onSubmit = async e => {
-    e.preventDefault();
+
+  onSubmit = async event => {
+    event.preventDefault();
     try {
+      const account = {
+        accountName: this.accountNameRef.current.value,
+        balance: this.balanceRef.current.value,
+        owner: this.state.owner
+      };
       await fetch('/app/financial/accounts/register', {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json'
         },
         method: 'POST',
-        body: JSON.stringify(this.state)
+        body: JSON.stringify(account)
       });
-      this.setState({ accountName: '', balance: 0 });
+      this.props.addAccount(account);
     } catch (error) {
       console.log(error);
     }
+    event.currentTarget.reset();
   };
 
   componentDidMount() {
     const owner = cookies.get('user');
-    this.setState(() => ({ ...this.props, owner }));
+    this.setState(() => ({ owner }));
   }
-
-  onAccountNameChange = e => {
-    const accountName = e.target.value;
-    this.setState(() => ({
-      accountName
-    }));
-  };
-
-  onBalanceChange = e => {
-    const balance = e.target.value;
-    this.setState(() => ({
-      balance
-    }));
-  };
 
   render() {
     return (
@@ -54,16 +47,14 @@ class AccountForm extends Component {
           name="accountName"
           className="account-form__input"
           placeholder="Account Name"
-          value={this.state.accountName}
-          onChange={this.onAccountNameChange}
+          ref={this.accountNameRef}
         />
         <input
           type="number"
           name="balance"
           className="account-form__input"
           placeholder="balance"
-          value={this.state.balance}
-          onChange={this.onBalanceChange}
+          ref={this.balanceRef}
         />
         <button type="submit" className="account-form__button">
           Save
