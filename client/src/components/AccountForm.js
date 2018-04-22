@@ -1,15 +1,8 @@
 import React, { Component, createRef } from 'react';
-import Cookies from 'universal-cookie';
-
-const cookies = new Cookies();
 
 class AccountForm extends Component {
   accountNameRef = createRef();
   balanceRef = createRef();
-
-  state = {
-    owner: ''
-  };
 
   onSubmit = async event => {
     event.preventDefault();
@@ -17,9 +10,9 @@ class AccountForm extends Component {
       const account = {
         accountName: this.accountNameRef.current.value,
         balance: this.balanceRef.current.value,
-        owner: this.state.owner
+        owner: this.props.user
       };
-      await fetch('/app/financial/accounts/register', {
+      await fetch(`/app/users/${this.props.user}/financial/accounts/register`, {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json'
@@ -33,11 +26,6 @@ class AccountForm extends Component {
     }
     event.currentTarget.reset();
   };
-
-  componentDidMount() {
-    const owner = cookies.get('user');
-    this.setState(() => ({ owner }));
-  }
 
   render() {
     return (

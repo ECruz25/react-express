@@ -4,6 +4,7 @@ import LoginPage from './LoginPage';
 import NotFound from './NotFound';
 import Dashboard from './Dashboard';
 import Accounts from './Accounts';
+import Account from './Account';
 import Header from './Header';
 
 class Router extends Component {
@@ -42,7 +43,15 @@ class Router extends Component {
                 <LoginPage loggedIn={props.loggedIn} login={this.props.login} />
               )}
             />
-            <Route path="/financial/accounts" component={Accounts} />
+            <Route
+              exact
+              path="/financial/accounts"
+              render={props => <Accounts user={this.props.user} />}
+            />
+            <Route
+              path="/financial/accounts/account/:id"
+              render={props => <Account user={this.props.user} />}
+            />
             <Route component={NotFound} />
           </Switch>
         </div>

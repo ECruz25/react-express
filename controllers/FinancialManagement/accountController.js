@@ -43,8 +43,7 @@ exports.deleteAccount = async (req, res) => {
 
 exports.getAccounts = async (req, res) => {
   try {
-    //algun dia tendre que cambiar esto para que solo muestre las de el usuario logueado
-    const accounts = await Account.find();
+    const accounts = await Account.find({ owner: req.params.userId });
     res.json(accounts);
   } catch (error) {
     console.log(error);
@@ -54,7 +53,10 @@ exports.getAccounts = async (req, res) => {
 
 exports.getAccount = async (req, res) => {
   try {
-    const account = await Account.findById({ owner: req.user });
+    const account = await Account.find({
+      _id: req.body.id,
+      owner: req.body.user
+    });
     res.json(account);
   } catch (error) {
     console.log(error);

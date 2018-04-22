@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AccountForm from './AccountForm';
 import AccountCard from './AccountCard';
 
-class Accounts extends Component {
+class Account extends Component {
   state = {
     accounts: {},
     totalBalance: 0
@@ -12,7 +12,9 @@ class Accounts extends Component {
     try {
       console.log(this);
       const response = await fetch(
-        `/app/financial/accounts/${this.props.user}`
+        `/app/financial/accounts/${this.state.user}/${
+          this.props.match.params.id
+        }`
       );
       const accounts = await response.json();
       let totalBalance = 0;
@@ -37,19 +39,11 @@ class Accounts extends Component {
           <h2>Account Balance</h2>
           <h2>Account Options</h2>
         </div>
-        {Object.keys(this.state.accounts).map(key => (
-          <AccountCard
-            balance={this.state.accounts[key].balance}
-            accountName={this.state.accounts[key].accountName}
-            id={this.state.accounts[key]._id}
-            key={key}
-            user={this.props.user}
-          />
-        ))}
-        <AccountForm addAccount={this.addAccount} user={this.props.user} />
+        <AccountCard />
+        <AccountForm addAccount={this.addAccount} />
       </div>
     );
   }
 }
 
-export default Accounts;
+export default Account;
