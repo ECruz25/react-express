@@ -1,14 +1,20 @@
-import React, { Component } from 'react';
+import React, { Fragment } from 'react';
+import styled from 'styled-components';
+
+const StyledTransactionsList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+`;
 
 const TransactionsList = ({ transactions }) => (
-  <div className="transactions">
+  <StyledTransactionsList>
     {Object.keys(transactions).map(key => (
-      <div className="transaction" key={key}>
+      <Fragment>
         <p>{transactions[key].description}</p>
         <p>{transactions[key].date}</p>
-      </div>
+      </Fragment>
     ))}
-  </div>
+  </StyledTransactionsList>
 );
 
 export default TransactionsList;
