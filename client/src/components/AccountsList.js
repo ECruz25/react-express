@@ -1,6 +1,9 @@
 import React, { PureComponent } from 'react';
+import styled from 'styled-components';
 import AccountForm from './AccountForm';
 import AccountCard from './AccountCard';
+
+const StyledAccountsList = styled``;
 
 class AccountsList extends PureComponent {
   render() {

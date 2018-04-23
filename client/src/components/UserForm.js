@@ -1,5 +1,40 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
+import styled from 'styled-components';
+
+const StyledUserForm = styled.div`
+  .user-form {
+    width: 40%;
+    margin: auto;
+    margin-top: 12vh;
+    display: grid;
+    font-size: 18px;
+    justify-items: center;
+    &-label {
+      margin: 10px 0;
+      justify-self: start;
+    }
+    &-input {
+      width: 90%;
+      height: 6vh;
+      padding-left: 10%;
+      border: 1px solid gray;
+      &:required {
+        box-shadow: none;
+      }
+    }
+    button {
+      background-color: red;
+      border: none;
+      width: 100%;
+      margin-top: 20px;
+      height: 7vh;
+      color: white;
+      font-size: 25px;
+      font-weight: 600;
+    }
+  }
+`;
 
 class UserForm extends Component {
   state = {
@@ -57,31 +92,33 @@ class UserForm extends Component {
       return <Redirect to="/" />;
     }
     return (
-      <form onSubmit={this.onSubmit} className="user-form">
-        <label className="user-form__label" htmlFor="username">
-          Username
-        </label>
-        <input
-          type="text"
-          className="user-form__input username"
-          name="username"
-          onChange={this.onUserNameChange}
-          required
-          value={this.state.username}
-        />
-        <label className="user-form__label" htmlFor="password">
-          Password
-        </label>
-        <input
-          type="password"
-          className="user-form__input password"
-          name="password"
-          onChange={this.onPasswordChange}
-          value={this.state.password}
-          required
-        />
-        <button type="submit">Go!</button>
-      </form>
+      <StyledUserForm>
+        <form onSubmit={this.onSubmit} className="user-form">
+          <label className="user-form-label" htmlFor="username">
+            Username
+          </label>
+          <input
+            type="text"
+            className="user-form-input username"
+            name="username"
+            onChange={this.onUserNameChange}
+            required
+            value={this.state.username}
+          />
+          <label className="user-form-label" htmlFor="password">
+            Password
+          </label>
+          <input
+            type="password"
+            className="user-form-input password"
+            name="password"
+            onChange={this.onPasswordChange}
+            value={this.state.password}
+            required
+          />
+          <button type="submit">Go!</button>
+        </form>
+      </StyledUserForm>
     );
   }
 }

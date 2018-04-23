@@ -9,11 +9,11 @@ const StyledDashboard = styled.main`
 class Dashboard extends PureComponent {
   render() {
     return (
-      <main className="dashboard">
+      <StyledDashboard>
         <section className="dashboard__accounts">
           <AccountsListContainer user={this.props.user} />
         </section>
-      </main>
+      </StyledDashboard>
     );
   }
 }

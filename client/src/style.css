@@ -3,37 +3,6 @@
   margin: auto 0;
   font-family: Montserrat, Arial, Helvetica, sans-serif;
 }
-.user-form {
-  width: 40%;
-  margin: auto;
-  margin-top: 12vh;
-  display: grid;
-  font-size: 18px;
-  justify-items: center;
-}
-.user-form__label {
-  margin: 10px 0;
-  justify-self: start;
-}
-.user-form__input {
-  width: 90%;
-  height: 6vh;
-  padding-left: 10%;
-  border: 1px solid #808080;
-}
-.user-form__input:required {
-  box-shadow: none;
-}
-.user-form button {
-  background-color: #f00;
-  border: none;
-  width: 100%;
-  margin-top: 20px;
-  height: 7vh;
-  color: #fff;
-  font-size: 25px;
-  font-weight: 600;
-}
 .accounts {
   margin: 0 2vw;
 }
