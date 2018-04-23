@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Cookies from 'universal-cookie';
 import Router from './Router';
-import '../style.css';
+import '../App.css';
 
 const cookies = new Cookies();
 

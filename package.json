@@ -6,11 +6,11 @@
     "start": "node ./bin/www",
     "server": "nodemon ./bin/www",
     "client": "npm run start --prefix client",
-    "styles": "npm run styles --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run styles\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "mocha **/*.test.js",
     "test-watch": "nodemon --exec 'npm test'",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild":
+      "cd client && npm install --only=dev && npm install && npm run build"
   },
   "dependencies": {
     "body-parser": "~1.18.2",

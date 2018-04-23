@@ -1,4 +1,29 @@
 import React, { Component, createRef } from 'react';
+import styled from 'styled-components';
+
+const StyledAccountForm = styled.div`
+  .account-form {
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+    justify-items: center;
+    height: 12vh;
+    width: 100%;
+    &-input {
+      width: 85%;
+      height: 90%;
+      padding-left: 10%;
+    }
+    &-button {
+      background-color: red;
+      border: none;
+      height: 55%;
+      width: 40%;
+      font-size: 30px;
+      color: white;
+      font-weight: 600;
+    }
+  }
+`;
 
 class AccountForm extends Component {
   onSubmit = async event => {
@@ -20,18 +45,18 @@ class AccountForm extends Component {
         <input
           type="text"
           name="accountName"
-          className="account-form__input"
+          className="account-form-input"
           placeholder="Account Name"
           ref={this.accountNameRef}
         />
         <input
           type="number"
           name="balance"
-          className="account-form__input"
+          className="account-form-input"
           placeholder="balance"
           ref={this.balanceRef}
         />
-        <button type="submit" className="account-form__button">
+        <button type="submit" className="account-form-button">
           Save
         </button>
       </form>
