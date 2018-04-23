@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import AccountsListContainer from './AccountsListContainer';
 
-class Dashboard extends Component {
+class Dashboard extends PureComponent {
   render() {
     return (
       <main className="dashboard">

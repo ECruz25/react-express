@@ -1,15 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import UserForm from './UserForm';
 
-class LoginPage extends Component {
+class LoginPage extends PureComponent {
   render() {
-    return (
-      <UserForm
-        authentication="login"
-        loggedIn={this.props.loggedIn}
-        login={this.props.login}
-      />
-    );
+    return <UserForm authentication="login" loggedIn={this.props.loggedIn} login={this.props.login} />;
   }
 }
 

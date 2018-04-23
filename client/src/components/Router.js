@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import LoginPage from './LoginPage';
 import NotFound from './NotFound';
@@ -7,21 +7,13 @@ import AccountsListContainer from './AccountsListContainer';
 import AccountContainer from './AccountContainer';
 import Header from './Header';
 
-class Router extends Component {
+class Router extends PureComponent {
   render() {
     if (!this.props.loggedIn) {
       return (
         <BrowserRouter>
           <Switch>
-            <Route
-              render={props => (
-                <LoginPage
-                  {...props}
-                  loggedIn={this.props.loggedIn}
-                  login={this.props.login}
-                />
-              )}
-            />
+            <Route render={props => <LoginPage {...props} loggedIn={this.props.loggedIn} login={this.props.login} />} />
           </Switch>
         </BrowserRouter>
       );
@@ -34,16 +26,9 @@ class Router extends Component {
             <Route
               exact
               path="/"
-              render={props => (
-                <Dashboard user={this.props.user} login={this.props.login} />
-              )}
+              render={props => <Dashboard {...props} user={this.props.user} login={this.props.login} />}
             />
-            <Route
-              path="/login"
-              render={props => (
-                <LoginPage loggedIn={props.loggedIn} login={this.props.login} />
-              )}
-            />
+            <Route path="/login" render={props => <LoginPage loggedIn={props.loggedIn} login={this.props.login} />} />
             <Route
               exact
               path="/financial/accounts"
@@ -51,9 +36,7 @@ class Router extends Component {
             />
             <Route
               path="/financial/accounts/account/:id"
-              render={({ match }) => (
-                <AccountContainer user={this.props.user} match={match} />
-              )}
+              render={({ match }) => <AccountContainer user={this.props.user} match={match} />}
             />
             <Route component={NotFound} />
           </Switch>

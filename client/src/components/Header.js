@@ -78,12 +78,7 @@ const StyledHeader = styled.nav`
 
 const Header = () => (
   <StyledHeader>
-    <NavLink
-      to="/"
-      className="header-logo header-item"
-      activeClassName=" header-item--active"
-      exact={true}
-    >
+    <NavLink to="/" className="header-logo header-item" activeClassName="header-item--active" exact>
       Dashboard
     </NavLink>
     <div className="header-sub-header">
@@ -94,18 +89,10 @@ const Header = () => (
       >
         Money Management
       </NavLink>
-      <NavLink
-        to="/todos"
-        className=" header-sub-header-item"
-        activeClassName="header-sub-header-item--active"
-      >
+      <NavLink to="/todos" className=" header-sub-header-item" activeClassName="header-sub-header-item--active">
         To-Do's
       </NavLink>
-      <NavLink
-        to="/login"
-        className="header-sub-header-item"
-        activeClassName="header-sub-header-item--active"
-      >
+      <NavLink to="/login" className="header-sub-header-item" activeClassName="header-sub-header-item--active">
         Login
       </NavLink>
     </div>

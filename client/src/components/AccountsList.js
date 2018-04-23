@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import AccountForm from './AccountForm';
 import AccountCard from './AccountCard';
 
-class AccountsList extends Component {
+class AccountsList extends PureComponent {
   render() {
     return (
       <div className="accounts">
@@ -22,10 +22,7 @@ class AccountsList extends Component {
             deleteAccount={this.props.deleteAccount}
           />
         ))}
-        <AccountForm
-          addAccount={this.props.addAccount}
-          user={this.props.user}
-        />
+        <AccountForm addAccount={this.props.addAccount} user={this.props.user} />
       </div>
     );
   }

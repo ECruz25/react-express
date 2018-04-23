@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Router from './Router';
 import Cookies from 'universal-cookie';
+import Router from './Router';
 import '../style.css';
 
 const cookies = new Cookies();
@@ -8,30 +8,23 @@ const cookies = new Cookies();
 class App extends Component {
   state = {
     loggedIn: '',
-    user: ''
+    user: '',
   };
 
+  componentWillMount() {
+    this.setState({
+      loggedIn: cookies.get('loggedIn'),
+      user: cookies.get('user'),
+    });
+  }
   login = user => {
     this.setState({ loggedIn: true, user });
     cookies.set('user', user);
     cookies.set('loggedIn', this.state.loggedIn);
   };
 
-  componentDidMount() {
-    this.setState({
-      loggedIn: cookies.get('loggedIn'),
-      user: cookies.get('user')
-    });
-  }
-
   render() {
-    return (
-      <Router
-        loggedIn={this.state.loggedIn}
-        login={this.login}
-        user={this.state.user}
-      />
-    );
+    return <Router loggedIn={this.state.loggedIn} login={this.login} user={this.state.user} />;
   }
 }
 

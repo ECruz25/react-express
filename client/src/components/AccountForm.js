@@ -1,18 +1,18 @@
 import React, { Component, createRef } from 'react';
 
 class AccountForm extends Component {
-  accountNameRef = createRef();
-  balanceRef = createRef();
-
   onSubmit = async event => {
     event.preventDefault();
     const account = {
       accountName: this.accountNameRef.current.value,
-      balance: this.balanceRef.current.value
+      balance: this.balanceRef.current.value,
     };
     this.props.addAccount(account);
     event.currentTarget.reset();
   };
+
+  accountNameRef = createRef();
+  balanceRef = createRef();
 
   render() {
     return (

@@ -4,33 +4,15 @@ import Account from './Account';
 class AccountContainer extends Component {
   state = {
     accounts: {},
-    transactions: {}
+    transactions: {},
   };
 
   async componentWillMount() {
     try {
-      const response = await fetch(
-        `/app/financial/accounts/${this.props.user}/${
-          this.props.match.params.id
-        }`
-      );
-      const account = await response.json();
-      this.setState({ account: account[0] });
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  async componentDidMount() {
-    try {
-      const response = await fetch(
-        `/app/financial/accounts/${this.props.user}`
-      );
+      const response = await fetch(`/app/financial/accounts/${this.props.user}`);
       const accounts = await response.json();
       const response2 = await fetch(
-        `/app/financial/accounts/${this.props.user}/${
-          this.props.match.params.id
-        }/transactions`
+        `/app/financial/accounts/${this.props.user}/${this.props.match.params.id}/transactions`
       );
       const transactions = await response2.json();
       this.setState({ accounts, transactions });
@@ -40,22 +22,17 @@ class AccountContainer extends Component {
   }
 
   createTransfer = async transaction => {
-    transaction['user'] = this.props.user;
+    transaction.user = this.props.user;
     console.log(transaction);
     try {
-      await fetch(
-        `/app/financial/accounts/${
-          this.props.user
-        }/transactions/register/transfer`,
-        {
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          },
-          method: 'POST',
-          body: JSON.stringify(transaction)
-        }
-      );
+      await fetch(`/app/financial/accounts/${this.props.user}/transactions/register/transfer`, {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify(transaction),
+      });
     } catch (error) {
       console.log(error);
     }
