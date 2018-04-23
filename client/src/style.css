@@ -3,44 +3,6 @@
   margin: auto 0;
   font-family: Montserrat, Arial, Helvetica, sans-serif;
 }
-.accounts {
-  margin: 0 2vw;
-}
-.accounts__titles {
-  margin: 40px 0;
-  display: grid;
-  grid-template-columns: 50% 25% 25%;
-  justify-items: center;
-}
-.account-card {
-  display: grid;
-  grid-template-columns: 50% 25% 25%;
-  font-weight: 600;
-  margin-top: 1vh;
-  margin-bottom: 1vh;
-  padding: 5vh;
-  padding-left: 5vw;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.03);
-}
-.account-card__balance {
-  justify-self: center;
-}
-.account-card__options {
-  justify-self: center;
-}
-.account-card__options a {
-  padding: 8.5px 18px;
-}
-.account-card__button {
-  text-decoration: none;
-  color: #fff;
-  background-color: #f00;
-  padding: 8px 18px;
-  font-weight: 600;
-  border: none;
-  margin: auto;
-  margin-left: 4px;
-}
 .account-form {
   display: grid;
   grid-template-columns: 50% 25% 25%;

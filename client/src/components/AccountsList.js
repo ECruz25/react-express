@@ -3,13 +3,21 @@ import styled from 'styled-components';
 import AccountForm from './AccountForm';
 import AccountCard from './AccountCard';
 
-const StyledAccountsList = styled``;
+const StyledAccountsList = styled.div`
+  margin: 0 2vw;
+  .accounts-titles {
+    margin: 40px 0;
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+    justify-items: center;
+  }
+`;
 
 class AccountsList extends PureComponent {
   render() {
     return (
-      <div className="accounts">
-        <div className="accounts__titles">
+      <StyledAccountsList>
+        <div className="accounts-titles">
           <h2>Account Name</h2>
           <h2>Account Balance</h2>
           <h2>Account Options</h2>
@@ -26,7 +34,7 @@ class AccountsList extends PureComponent {
           />
         ))}
         <AccountForm addAccount={this.props.addAccount} user={this.props.user} />
-      </div>
+      </StyledAccountsList>
     );
   }
 }
