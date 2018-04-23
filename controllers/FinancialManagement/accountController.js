@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const Account = mongoose.model('Account');
-const User = mongoose.model('User');
 const promisify = require('es6-promisify');
 const moment = require('moment');
+const Account = mongoose.model('Account');
+const User = mongoose.model('User');
 const { getUserById } = require('../userController');
 
 exports.registerAccount = async (req, res) => {
