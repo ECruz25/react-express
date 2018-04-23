@@ -41,25 +41,27 @@ class AccountForm extends Component {
 
   render() {
     return (
-      <form className="account-form" onSubmit={this.onSubmit}>
-        <input
-          type="text"
-          name="accountName"
-          className="account-form-input"
-          placeholder="Account Name"
-          ref={this.accountNameRef}
-        />
-        <input
-          type="number"
-          name="balance"
-          className="account-form-input"
-          placeholder="balance"
-          ref={this.balanceRef}
-        />
-        <button type="submit" className="account-form-button">
-          Save
-        </button>
-      </form>
+      <StyledAccountForm>
+        <form className="account-form" onSubmit={this.onSubmit}>
+          <input
+            type="text"
+            name="accountName"
+            className="account-form-input"
+            placeholder="Account Name"
+            ref={this.accountNameRef}
+          />
+          <input
+            type="number"
+            name="balance"
+            className="account-form-input"
+            placeholder="balance"
+            ref={this.balanceRef}
+          />
+          <button type="submit" className="account-form-button">
+            Save
+          </button>
+        </form>
+      </StyledAccountForm>
     );
   }
 }

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import AccountForm from './AccountForm';
 import AccountCard from './AccountCard';
+import LoadingHOC from './HOC/LoadingHOC';
 
 const StyledAccountsList = styled.div`
   margin: 0 2vw;
@@ -39,4 +40,4 @@ class AccountsList extends PureComponent {
   }
 }
 
-export default AccountsList;
+export default LoadingHOC('accounts')(AccountsList);

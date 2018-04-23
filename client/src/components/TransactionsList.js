@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
+import LoadingHOC from './HOC/LoadingHOC';
 
 const StyledTransactionsList = styled.div`
   display: grid;
@@ -17,4 +18,4 @@ const TransactionsList = ({ transactions }) => (
   </StyledTransactionsList>
 );
 
-export default TransactionsList;
+export default LoadingHOC('transactions')(TransactionsList);
