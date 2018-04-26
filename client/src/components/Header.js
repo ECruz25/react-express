@@ -76,27 +76,36 @@ const StyledHeader = styled.nav`
   }
 `;
 
-const Header = () => (
-  <StyledHeader>
-    <NavLink to="/" className="header-logo header-item" activeClassName="header-item--active" exact>
-      Dashboard
-    </NavLink>
-    <div className="header-sub-header">
-      <NavLink
-        to="/financial/accounts"
-        className=" header-sub-header-item"
-        activeClassName="header-sub-header-item--active"
-      >
-        Money Management
-      </NavLink>
-      <NavLink to="/todos" className=" header-sub-header-item" activeClassName="header-sub-header-item--active">
-        To-Do's
-      </NavLink>
-      <NavLink to="/login" className="header-sub-header-item" activeClassName="header-sub-header-item--active">
-        Login
-      </NavLink>
-    </div>
-  </StyledHeader>
-);
-
+class Header extends React.PureComponent {
+  render() {
+    return (
+      <StyledHeader>
+        <NavLink to="/" className="header-logo header-item" activeClassName="header-item--active" exact>
+          Dashboard
+        </NavLink>
+        <div className="header-sub-header">
+          <NavLink
+            to="/financial/accounts"
+            className=" header-sub-header-item"
+            activeClassName="header-sub-header-item--active"
+          >
+            Money Management
+          </NavLink>
+          <NavLink to="/todos" className=" header-sub-header-item" activeClassName="header-sub-header-item--active">
+            To-Do's
+          </NavLink>
+          {!this.props.loggedIn ? (
+            <NavLink to="/login" className="header-sub-header-item" activeClassName="header-sub-header-item--active">
+              Login
+            </NavLink>
+          ) : (
+            <NavLink to="/logout" className="header-sub-header-item" activeClassName="header-sub-header-item--active">
+              Logout
+            </NavLink>
+          )}
+        </div>
+      </StyledHeader>
+    );
+  }
+}
 export default Header;

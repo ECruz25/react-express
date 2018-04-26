@@ -23,8 +23,14 @@ class App extends Component {
     cookies.set('loggedIn', this.state.loggedIn);
   };
 
+  logout = () => {
+    this.setState({ loggedIn: false, user: '' });
+    cookies.remove('user');
+    cookies.remove('loggedIn');
+  };
+
   render() {
-    return <Router loggedIn={this.state.loggedIn} login={this.login} user={this.state.user} />;
+    return <Router loggedIn={this.state.loggedIn} login={this.login} user={this.state.user} logout={this.logout} />;
   }
 }
 

@@ -6,8 +6,7 @@ const accountSchema = new Schema({
   accountName: {
     type: String,
     required: 'Please enter a name for the account',
-    trim: true,
-    unique: true
+    trim: true
   },
   balance: {
     type: Number,

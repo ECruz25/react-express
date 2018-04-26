@@ -11,7 +11,14 @@ router.get('/logout', authController.logout, (req, res) => {
   res.send(200);
 });
 
-// router.post('/register', userController.register, authController.login);
+router.post(
+  '/register',
+  userController.register,
+  authController.login,
+  (req, res) => {
+    res.json(req.user._id);
+  }
+);
 router.post('/login', authController.login, (req, res) => {
   res.json(req.user._id);
 });

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledUserForm = styled.div`
@@ -52,6 +53,7 @@ class UserForm extends Component {
 
   onSubmit = async e => {
     e.preventDefault();
+    console.log(this.state);
     try {
       const response = await fetch(`/app/users/${this.props.authentication}`, {
         headers: {
