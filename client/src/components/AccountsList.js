@@ -12,6 +12,11 @@ const StyledAccountsList = styled.div`
     grid-template-columns: 50% 25% 25%;
     justify-items: center;
   }
+  @media (max-width: 500px) {
+    .accounts-titles {
+      display: none;
+    }
+  }
 `;
 
 class AccountsList extends PureComponent {

@@ -15,9 +15,14 @@ const StyledAccountCard = styled.div`
     justify-self: center;
   }
   .account-card-options {
-    justify-self: center;
+    /* justify-self: center; */
     a {
       padding: 8.5px 18px;
+      box-sizing: content-box;
+    }
+    button {
+      padding: 8.5px 18px;
+      box-sizing: content-box;
     }
   }
   .account-card-button {
@@ -29,6 +34,15 @@ const StyledAccountCard = styled.div`
     border: none;
     margin: auto;
     margin-left: 4px;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+    .account-card-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-content: center;
+      margin-top: 10px;
+    }
   }
 `;
 

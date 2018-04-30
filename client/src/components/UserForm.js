@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledUserForm = styled.div`
@@ -35,19 +34,24 @@ const StyledUserForm = styled.div`
       font-weight: 600;
     }
   }
+  @media (max-width: 600px) {
+    .user-form {
+      width: 80%;
+    }
+  }
 `;
 
 class UserForm extends Component {
   state = {
     username: '',
     password: '',
-    redirect: false,
+    redirect: false
   };
 
   componentWillUnmount = () => {
     this.setState(() => ({
       username: '',
-      password: '',
+      password: ''
     }));
   };
 
@@ -58,14 +62,14 @@ class UserForm extends Component {
       const response = await fetch(`/app/users/${this.props.authentication}`, {
         headers: {
           Accept: 'application/json',
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         method: 'POST',
-        body: JSON.stringify(this.state),
+        body: JSON.stringify(this.state)
       });
       if (response.ok) {
         this.setState({
-          redirect: true,
+          redirect: true
         });
         this.props.login(await response.json());
       }
@@ -77,14 +81,14 @@ class UserForm extends Component {
   onUserNameChange = e => {
     const username = e.target.value;
     this.setState(() => ({
-      username,
+      username
     }));
   };
 
   onPasswordChange = e => {
     const password = e.target.value;
     this.setState(() => ({
-      password,
+      password
     }));
   };
 

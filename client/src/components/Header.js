@@ -9,6 +9,9 @@ const StyledHeader = styled.nav`
   grid-template-columns: 34% 66%;
   justify-items: center;
   border-bottom: 12px solid gray;
+  .hidden {
+    display: none;
+  }
   .header-logo {
     color: white;
     background-color: red;
@@ -74,6 +77,30 @@ const StyledHeader = styled.nav`
       }
     }
   }
+  .header-sub-header-icons {
+    display: none;
+  }
+  @media (max-width: 600px) {
+    /* display: none; */
+    font-size: 16px;
+    padding: 8px;
+    display: block;
+    .header-logo {
+      display: none;
+    }
+    .header-sub-header {
+      display: none;
+    }
+    .header-sub-header-icons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
+    }
+    .icon {
+      height: 32px;
+      width: 32px;
+    }
+  }
 `;
 
 class Header extends React.PureComponent {
@@ -101,6 +128,39 @@ class Header extends React.PureComponent {
           ) : (
             <NavLink to="/logout" className="header-sub-header-item" activeClassName="header-sub-header-item--active">
               Logout
+            </NavLink>
+          )}
+        </div>
+        <div className="header-sub-header-icons">
+          <NavLink
+            to="/financial/accounts"
+            className=" header-sub-header-item-icon"
+            activeClassName="header-sub-header-item-icon--active"
+          >
+            <img src="/money.png" alt="icon" className="icon" />
+          </NavLink>
+          <NavLink
+            to="/todos"
+            className=" header-sub-header-item-icon"
+            activeClassName="header-sub-header-item-icon--active"
+          >
+            <img src="/todo.png" alt="icon" className="icon" />
+          </NavLink>
+          {!this.props.loggedIn ? (
+            <NavLink
+              to="/login"
+              className="header-sub-header-item-icon"
+              activeClassName="header-sub-header-item-icon--active"
+            >
+              Login
+            </NavLink>
+          ) : (
+            <NavLink
+              to="/logout"
+              className="header-sub-header-item-icon"
+              activeClassName="header-sub-header-item-icon--active"
+            >
+              <img src="/logout.png" alt="icon" className="icon" />
             </NavLink>
           )}
         </div>
